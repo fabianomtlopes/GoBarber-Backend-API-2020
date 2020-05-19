@@ -67,19 +67,8 @@
 - registrar providers no container do DI (dependences injection)
 
 
-
-
-
-
 - criar um ResetPasswordService
-
-
-
 
 
 - Os controller possuem 5 metodos (create, read, update, delete, show)
 
-
-
-
-curiosidade para gravar aulas - screenFlow
