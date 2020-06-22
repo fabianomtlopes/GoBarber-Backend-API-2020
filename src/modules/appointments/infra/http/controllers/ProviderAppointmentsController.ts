@@ -1,8 +1,14 @@
 import { Response, Request } from 'express';
 import { container } from 'tsyringe';
-import { classToClass } from 'class-transformer';
+// import { classToClass } from 'class-transformer';
 
 import ListProviderAppointmentsService from '@modules/appointments/services/ListProvidersAppointmentsService';
+
+// interface IRequest extends Request {
+//   user: {
+//     id: string;
+//   };
+// }
 
 export default class ProviderAppointmentsController {
   public async index(req: Request, res: Response): Promise<Response> {
@@ -20,6 +26,7 @@ export default class ProviderAppointmentsController {
       year: Number(year),
     });
 
-    return res.json(classToClass(appointments));
+    return res.json(appointments);
+    // return res.json(classToClass(appointments));
   }
 }

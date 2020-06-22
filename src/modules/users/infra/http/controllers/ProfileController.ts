@@ -1,27 +1,24 @@
-import { Response, Request } from 'express';
+import { Request, Response } from 'express';
 import { container } from 'tsyringe';
-import { classToClass } from 'class-transformer';
+import { classToClass } from 'class-transformer'; // para serialização
 
 import UpdateProfileService from '@modules/users/services/UpdateProfileService';
 import ShowProfileService from '@modules/users/services/ShowProfileService';
 
 export default class ProfileController {
   public async show(req: Request, res: Response): Promise<Response> {
-    // exibição do prefil
     const user_id = req.user.id;
 
     const showProfile = container.resolve(ShowProfileService);
 
     const user = await showProfile.execute({ user_id });
 
-    // delete user.password;
-
     return res.json(classToClass(user));
   }
 
   public async update(req: Request, res: Response): Promise<Response> {
     const user_id = req.user.id;
-    const { name, email, old_password, password } = req.body;
+    const { name, email, password, old_password } = req.body;
 
     const updateProfile = container.resolve(UpdateProfileService);
 
@@ -32,8 +29,6 @@ export default class ProfileController {
       old_password,
       password,
     });
-
-    // delete user.password;
 
     return res.json(classToClass(user));
   }

@@ -2,8 +2,9 @@ import AppError from '@shared/errors/AppError';
 // import uploadConfig from '@config/upload';
 import { injectable, inject } from 'tsyringe';
 
+import User from '@modules/users/infra/typeorm/entities/User';
 import IUsersRepository from '../repositories/IUsersResporitory';
-import User from '../infra/typeorm/entities/User';
+// import User from '../infra/typeorm/entities/User';
 
 interface IRequest {
   user_id: string;

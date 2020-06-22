@@ -1,9 +1,10 @@
-import AppError from '@shared/errors/AppError';
 // import uploadConfig from '@config/upload';
 import { injectable, inject } from 'tsyringe';
 
+import AppError from '@shared/errors/AppError';
 import IHashProvider from '../providers/HashProvider/models/IHashProvider';
 import IUsersRepository from '../repositories/IUsersResporitory';
+
 import User from '../infra/typeorm/entities/User';
 
 interface IRequest {
